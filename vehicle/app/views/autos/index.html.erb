@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Autos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>Marca</th>
+      <th>Ano</th>
+      <th>Precio</th>
+      <th>Agencia</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @autos.each do |auto| %>
+      <tr>
+        <td><%= auto.modelo %></td>
+        <td><%= auto.marca %></td>
+        <td><%= auto.ano %></td>
+        <td><%= auto.precio %></td>
+        <td><%= auto.agencia %></td>
+        <td><%= link_to 'Show', auto, class: 'button success radius small' %></td>
+        <td><%= link_to 'Edit', edit_auto_path(auto), class: 'button success radius small' %></td>
+        <td><%= link_to 'Destroy', auto, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button success radius small' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Auto', new_auto_path %>
