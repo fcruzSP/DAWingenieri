@@ -1,0 +1,33 @@
+<%= @user_id %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Recipes</h1>
+
+  <% @recipes.each do |recipe| %>
+      <div class="col-md-3">
+        <div class="thumbnail">
+          <%= recipe.nam_recipes %> <br />
+          <%= recipe.ingredients %> <br />
+          <%= recipe.preparation %> <br />
+          <%= recipe.preparation_time %> <br />
+          <%= recipe.state %> <br />
+          <%= recipe.description %> <br />
+          <%= image_tag(recipe.photo, :class => 'img-responsive') %>
+          <div class="buttons" style="margin-top:10px; margin-bottom:10px">
+            <%= link_to 'Show', recipe, :class => 'btn' %>
+            <%= link_to 'Edit', edit_recipe_path(recipe), :class => 'btn' %>
+            <% if user_signed_in? %>
+                <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+
+
+  <br>
+  <% if user_signed_in? %>
+      <%= link_to 'New Recipe', new_recipe_path %>
+  <% end %>
+</div>

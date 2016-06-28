@@ -1,0 +1,67 @@
+<%= form_for(recipe) do |f| %>
+  <% if recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :nam_recipes, 'Nombre' %>
+      <%= f.text_field :nam_recipes, :class => 'form-control', :placeholder => "Nombre de la Receta" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :ingredients, 'Ingredientes' %>
+      <%= f.text_area :ingredients, :class => 'form-control', :placeholder => "Ingredientes", :rows => "10", :cols => "30"  %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :preparation, 'Preparacion' %>
+      <%= f.text_area :preparation, :class => 'form-control', :placeholder => "Modo de Preparacion", :rows => "10", :cols => "30"  %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :preparation_time, 'Timepo de Preparacion (min)' %>
+      <%= f.text_field :preparation_time, :class => 'form-control', :placeholder => "Tiempo de Preparacion"  %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :photo, 'Foto' %>
+      <%= f.file_field :photo, :class => 'form-control', :placeholder => "Foto"  %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :state, 'Estado' %>
+      <%= f.text_field :state, :class => 'form-control', :placeholder => "Estado"  %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :description, 'Descripción' %>
+      <%= f.text_area :description, :class => 'form-control', :placeholder => "Descripción", :rows => "10", :cols => "30"  %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Crear", :class => "btn btn-primary" %>
+  </div>
+
+<% end %>
